@@ -14,6 +14,10 @@ package com.fadev.colibri.exception;
  */
 public class RestResourceNotFoundException extends NullPointerException {
 
+    public RestResourceNotFoundException() {
+        this("");
+    }
+
     public RestResourceNotFoundException(String s) {
         super(String.format("Resource (<%s>) is null, so could not be processed", s));
     }
