@@ -17,7 +17,14 @@ import com.fadev.colibri.exception.RestResourceNotFoundException;
  */
 public class RestPrecondition {
 
-    public static <T> T checkNotNull(T resource) {
+    /**
+     * Ensures that the object given as a method parameter is not null.
+     * @param resource the reference to the inspected object.
+     * @param <T> the type of input object
+     * @return the input resource if it is not a null reference
+     * @throws java.lang.NullPointerException If the object given as a method parameter is null.
+     */
+    public static <T> T checkNotNull(T resource) throws RestResourceNotFoundException {
         if (resource == null) {
             throw new RestResourceNotFoundException();
         }
