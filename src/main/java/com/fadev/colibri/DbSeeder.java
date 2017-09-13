@@ -1,3 +1,11 @@
+/*
+ * GNU GENERAL PUBLIC LICENSE
+ * Version 3, 29 June 2007
+ *
+ * Copyright (C) 2007 Free Software Foundation, Inc. <http://fsf.org/>
+ * Everyone is permitted to copy and distribute verbatim copies
+ * of this license document, but changing it is not allowed.
+ */
 package com.fadev.colibri;
 
 import com.fadev.colibri.bean.Author;
@@ -41,6 +49,7 @@ public class DbSeeder implements CommandLineRunner {
 
         User fab = new User("Fabrizio", "Ariano");
         User gian = new User("Gianluca", "Carroccia");
+        this.userRepository.deleteAll();
         this.userRepository.save(Arrays.asList(fab, gian));
     }
 }
