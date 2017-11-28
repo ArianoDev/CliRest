@@ -8,27 +8,27 @@
  */
 package com.fadev.colibri.service;
 
-import com.fadev.colibri.bean.Author;
-import com.fadev.colibri.repo.AuthorRepository;
+import com.fadev.colibri.bean.Book;
+import com.fadev.colibri.repo.BookRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
- * {@link GenericService} implementation about {@link Author} for Mongo Db.
+ * {@link GenericService} implementation about {@link Book} for Mongo Db.
  *
  * @author Fabrizio Ariano.
  */
 @Service
-public class MongoDBAuthorServiceImpl extends MongoDBGenericServiceImpl<Author> {
+public class MongoDBBookServiceImpl extends MongoDBGenericServiceImpl<Book> {
 
-    private static final Logger logger = LoggerFactory.getLogger(MongoDBAuthorServiceImpl.class);
+    private static final Logger logger = LoggerFactory.getLogger(MongoDBBookServiceImpl.class);
 
     @Autowired
-    public MongoDBAuthorServiceImpl(AuthorRepository repository) {
+    public MongoDBBookServiceImpl(BookRepository repository) {
         super(repository);
-        logger.debug("MongoDBAuthorServiceImpl successfully initialized");
+        logger.debug("MongoDBBookServiceImpl successfully initialized");
     }
 
 }

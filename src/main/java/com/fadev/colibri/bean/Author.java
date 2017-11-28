@@ -20,22 +20,32 @@ import java.util.List;
  * @author Fabrizio Ariano
  */
 @Document(collection = "Authors")
-public class Author {
+public class Author implements IData<Author>{
 
     @Id
     private String id;
     private String firstName;
     private String lastName;
-    private List<Book> books;
+    private List<String> books;
 
     public Author() {
         this.books = new ArrayList<>();
     }
 
-    public Author(String firstName, String lastName, List<Book> books) {
+    public Author(String firstName, String lastName, List<String> books) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.books = books;
+    }
+
+    /**
+     * Allows to retrieve the value of id param.
+     *
+     * @return the value of id param
+     */
+    @Override
+    public String getId() {
+        return id;
     }
 
     /**
@@ -79,7 +89,7 @@ public class Author {
      *
      * @return the value of books parameter
      */
-    public List<Book> getBooks() {
+    public List<String> getBooks() {
         return books;
     }
 
@@ -88,7 +98,7 @@ public class Author {
      *
      * @param books the value to set
      */
-    public void setBooks(List<Book> books) {
+    public void setBooks(List<String> books) {
         this.books = books;
     }
 
@@ -96,6 +106,7 @@ public class Author {
      * Updates self instance with input data
      * @param source the source object from which retrieve data
      */
+    @Override
     public void update(Author source) {
         if(source == null) {
             throw new IllegalArgumentException("Source obj could not be null");

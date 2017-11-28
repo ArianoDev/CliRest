@@ -9,13 +9,15 @@
 package com.fadev.colibri.bean;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
  * Class that contains the information of a single Book entry.
  *
  * @author Fabrizio Ariano
  */
-public class Book {
+@Document(collection = "Books")
+public class Book implements IData<Book>{
 
     @Id
     private String id;
@@ -33,6 +35,15 @@ public class Book {
         this.genre = genre;
         this.date = date;
         this.isbn = isbn;
+    }
+
+    /**
+     *
+     * @return
+     */
+    @Override
+    public String getId() {
+        return id;
     }
 
     /**
@@ -105,5 +116,20 @@ public class Book {
      */
     public void setIsbn(String isbn) {
         this.isbn = isbn;
+    }
+
+    /**
+     * Updates self instance with input data
+     * @param source the source object from which retrieve data
+     */
+    @Override
+    public void update(Book source) {
+        if(source == null) {
+            throw new IllegalArgumentException("Source obj could not be null");
+        }
+        setDate(source.getDate());
+        setGenre(source.getGenre());
+        setIsbn(source.getIsbn());
+        setName(source.getName());
     }
 }

@@ -10,8 +10,7 @@ package com.fadev.colibri.controller;
 
 import com.fadev.colibri.bean.Author;
 import com.fadev.colibri.exception.RestResourceNotFoundException;
-import com.fadev.colibri.repo.AuthorRepository;
-import com.fadev.colibri.service.AuthorService;
+import com.fadev.colibri.service.GenericService;
 import com.fadev.colibri.util.RestPrecondition;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,10 +33,10 @@ public class AuthorController {
 
     private static final Logger logger = LoggerFactory.getLogger(AuthorController.class);
 
-    private final AuthorService service;
+    private final GenericService<Author> service;
 
     @Autowired
-    public AuthorController(AuthorService service) {
+    public AuthorController(GenericService<Author> service) {
         this.service = service;
     }
 
