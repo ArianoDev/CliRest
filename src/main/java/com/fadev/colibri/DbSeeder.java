@@ -57,8 +57,8 @@ public class DbSeeder implements CommandLineRunner {
 
 
 
-        User fab = new User("Fabrizio", "Ariano");
-        User gian = new User("Gianluca", "Carroccia");
+        User fab = new User("Jonh", "Doe");
+        User gian = new User("Guybrush", "Threepwood");
         this.userRepository.deleteAll();
         this.userRepository.save(Arrays.asList(fab, gian));
     }
